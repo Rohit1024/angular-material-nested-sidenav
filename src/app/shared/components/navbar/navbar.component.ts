@@ -1,4 +1,4 @@
-import { Component, HostBinding, inject, model, signal } from '@angular/core';
+import { Component, Renderer2, inject, model, signal } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { Router, RouterLink } from '@angular/router';
@@ -56,15 +56,15 @@ export class NavbarComponent {
 
   isDarkMode = signal<boolean>(false);
 
-  @HostBinding('class')
-  currentTheme: 'light-theme' | 'dark-theme' = 'light-theme';
+  private renderer = inject(Renderer2);
 
   toggle() {
-    this.isDarkMode.set(!this.isDarkMode());
     if (this.isDarkMode()) {
-      this.currentTheme = 'dark-theme';
+      this.renderer.removeClass(document.body, 'darkMode');
     } else {
-      this.currentTheme = 'light-theme';
+      this.renderer.addClass(document.body, 'darkMode');
     }
+
+    this.isDarkMode.update((isEnabled) => !isEnabled);
   }
 }

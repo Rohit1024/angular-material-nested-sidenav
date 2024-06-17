@@ -32,7 +32,6 @@
             "outputPath": "dist/demo",
             "scripts": [],
             "styles": [
-              "@angular/material/prebuilt-themes/magenta-violet.css",
               "src/styles.scss"
             ],
             "tsConfig": "tsconfig.app.json",

@@ -10,9 +10,9 @@ import { MatIconModule } from '@angular/material/icon';
   template: `
     <div class="container">
       <mat-card appearance="outlined">
-        <div style="text-align:center; margin-top: 20px; color: white;">
-          <mat-card-title> Get Started </mat-card-title>
-        </div>
+      <mat-card-header style="display: flex; justify-content: center;">
+      <mat-card-title> Get Started </mat-card-title>
+    </mat-card-header>
         <mat-card-content style="margin-top: 20px;">
           <nav
             style="margin: 10px 0px;"
