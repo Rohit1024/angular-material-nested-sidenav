@@ -1,8 +1,8 @@
-import { Component } from '@angular/core';
-import { MatCardModule } from '@angular/material/card';
-import { MatTabsModule } from '@angular/material/tabs';
-import { RouterModule } from '@angular/router';
-import { MatIconModule } from '@angular/material/icon';
+import { Component } from "@angular/core";
+import { MatCardModule } from "@angular/material/card";
+import { MatTabsModule } from "@angular/material/tabs";
+import { RouterModule } from "@angular/router";
+import { MatIconModule } from "@angular/material/icon";
 
 @Component({
   standalone: true,
@@ -10,9 +10,9 @@ import { MatIconModule } from '@angular/material/icon';
   template: `
     <div class="container">
       <mat-card appearance="outlined">
-      <mat-card-header style="display: flex; justify-content: center;">
-      <mat-card-title> Get Started </mat-card-title>
-    </mat-card-header>
+        <mat-card-header style="display: flex; justify-content: center;">
+          <mat-card-title> Get Started </mat-card-title>
+        </mat-card-header>
         <mat-card-content style="margin-top: 20px;">
           <nav
             style="margin: 10px 0px;"
@@ -48,7 +48,7 @@ import { MatIconModule } from '@angular/material/icon';
       }
 
       .container {
-        height: calc(100dvh - 64px);
+        height: calc(100dvh - 70px);
         display: flex;
         justify-content: center;
         align-items: center;
@@ -59,14 +59,14 @@ import { MatIconModule } from '@angular/material/icon';
 export class AuthLayoutComponent {
   authTabs = [
     {
-      icon: 'login',
-      label: 'Sign In',
-      route: 'signin',
+      icon: "login",
+      label: "Sign In",
+      route: "signin",
     },
     {
-      icon: 'person_add',
-      label: 'Sign Up',
-      route: 'signup',
+      icon: "person_add",
+      label: "Sign Up",
+      route: "signup",
     },
   ];
 }
