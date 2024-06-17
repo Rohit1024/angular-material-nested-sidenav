@@ -24,7 +24,7 @@ import { MenuItemComponent } from '@/app/shared/components/menu-item/menu-item.c
     <mat-toolbar color="accent">
       <app-navbar [(toggleSidenav)]="isOpened" />
     </mat-toolbar>
-    <mat-sidenav-container>
+    <mat-sidenav-container [hasBackdrop]="true">
       <mat-sidenav
         class="sidenav"
         fixedInViewport
