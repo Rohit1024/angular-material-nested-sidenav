@@ -32,7 +32,10 @@
             "browser": "src/main.ts",
             "outputPath": "dist/demo",
             "scripts": [],
-            "styles": ["src/styles.scss"],
+            "styles": [
+              "src/styles.scss",
+              "./node_modules/@angular/material/prebuilt-themes/magenta-violet.css"
+            ],
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss"
           }

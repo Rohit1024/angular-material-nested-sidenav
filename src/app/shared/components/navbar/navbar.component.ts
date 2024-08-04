@@ -1,10 +1,10 @@
-import { Component, Renderer2, inject, model, signal } from '@angular/core';
-import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
-import { Router, RouterLink } from '@angular/router';
+import { Component, Renderer2, inject, model, signal } from "@angular/core";
+import { MatButtonModule } from "@angular/material/button";
+import { MatIconModule } from "@angular/material/icon";
+import { Router, RouterLink } from "@angular/router";
 
 @Component({
-  selector: 'app-navbar',
+  selector: "app-navbar",
   standalone: true,
   imports: [MatIconModule, MatButtonModule, RouterLink],
   template: `
@@ -21,13 +21,14 @@ import { Router, RouterLink } from '@angular/router';
     </div>
     <div class="gapping">
       <button mat-button style="margin-right: 10px;" (click)="toggle()">
-        @if(isDarkMode()) {
-        <mat-icon>dark_mode</mat-icon>
-        }@else {
-        <mat-icon>light_mode</mat-icon>
-        } Theme
+        @if (isDarkMode()) {
+          <mat-icon>dark_mode</mat-icon>
+        } @else {
+          <mat-icon>light_mode</mat-icon>
+        }
+        Theme
       </button>
-      <a mat-raised-button routerLink="/auth/signin">
+      <a mat-raised-button routerLink="/signin">
         <span>Sign in</span>
         <mat-icon>login</mat-icon>
       </a>
@@ -60,9 +61,9 @@ export class NavbarComponent {
 
   toggle() {
     if (this.isDarkMode()) {
-      this.renderer.removeClass(document.body, 'darkMode');
+      this.renderer.removeClass(document.body, "darkMode");
     } else {
-      this.renderer.addClass(document.body, 'darkMode');
+      this.renderer.addClass(document.body, "darkMode");
     }
 
     this.isDarkMode.update((isEnabled) => !isEnabled);

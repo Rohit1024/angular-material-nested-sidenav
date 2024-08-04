@@ -1,18 +1,18 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from "@angular/core";
 import {
   NonNullableFormBuilder,
   ReactiveFormsModule,
   Validators,
-} from '@angular/forms';
-import { Router, RouterLink } from '@angular/router';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { MatIconModule } from '@angular/material/icon';
-import { MatButtonModule } from '@angular/material/button';
-import { HotToastService } from '@ngxpert/hot-toast';
+} from "@angular/forms";
+import { Router, RouterLink } from "@angular/router";
+import { MatFormFieldModule } from "@angular/material/form-field";
+import { MatInputModule } from "@angular/material/input";
+import { MatIconModule } from "@angular/material/icon";
+import { MatButtonModule } from "@angular/material/button";
+import { HotToastService } from "@ngxpert/hot-toast";
 
 @Component({
-  selector: 'auth-signin',
+  selector: "auth-signin",
   standalone: true,
   imports: [
     MatFormFieldModule,
@@ -35,10 +35,11 @@ import { HotToastService } from '@ngxpert/hot-toast';
           [formControl]="signinForm.controls.email"
         />
         <mat-icon matSuffix>email</mat-icon>
-        @if(handleErrorLogin('email', 'required')) {
-        <mat-error><small>Email is required</small> </mat-error>
-        } @if(handleErrorLogin('email', 'email')){
-        <mat-error><small>Email should be of Valid Format</small></mat-error>
+        @if (handleErrorLogin("email", "required")) {
+          <mat-error><small>Email is required</small> </mat-error>
+        }
+        @if (handleErrorLogin("email", "email")) {
+          <mat-error><small>Email should be of Valid Format</small></mat-error>
         }
       </mat-form-field>
       <mat-form-field appearance="outline">
@@ -59,14 +60,15 @@ import { HotToastService } from '@ngxpert/hot-toast';
           [attr.aria-label]="'Hide password'"
           [attr.aria-pressed]="passwordHide"
         >
-          @if(passwordHide){
-          <mat-icon matSuffix>visibility_off</mat-icon>
-          } @if(!passwordHide) {
-          <mat-icon matSuffix>visibility</mat-icon>
+          @if (passwordHide) {
+            <mat-icon matSuffix>visibility_off</mat-icon>
+          }
+          @if (!passwordHide) {
+            <mat-icon matSuffix>visibility</mat-icon>
           }
         </button>
-        @if(handleErrorLogin('password', 'required')) {
-        <mat-error><small>Password is required</small></mat-error>
+        @if (handleErrorLogin("password", "required")) {
+          <mat-error><small>Password is required</small></mat-error>
         }
       </mat-form-field>
       <button style="width: 100%;" mat-fab extended type="submit">
@@ -108,21 +110,21 @@ export class SigninComponent {
   passwordHide = true;
 
   signinForm = this.fb.group({
-    email: ['', [Validators.required, Validators.email]],
-    password: ['', Validators.required],
+    email: ["", [Validators.required, Validators.email]],
+    password: ["", Validators.required],
   });
 
   onSubmit() {
     this.signinForm.markAllAsTouched();
     const { email, password } = this.signinForm.value;
     if (!this.signinForm.valid || !email || !password)
-      return this.toast.error('Form has some errors');
+      return this.toast.error("Form has some errors");
     console.table(this.signinForm.value);
-    return this.toast.success('Signed in Successfully');
+    return this.toast.success("Signed in Successfully");
   }
 
   signInWithGoogle() {
-    return this.toast.error('Yet to implement');
+    return this.toast.error("Yet to implement");
   }
 
   /* Get errors */

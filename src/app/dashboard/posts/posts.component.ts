@@ -60,7 +60,7 @@ import { DatePipe } from "@angular/common";
           <ng-container matColumnDef="dob">
             <th mat-header-cell *matHeaderCellDef>Birth Date</th>
             <td mat-cell *matCellDef="let user">
-              {{ user.dob | date : "medium" }}
+              {{ user.dob | date: "medium" }}
             </td>
           </ng-container>
 
@@ -72,14 +72,14 @@ import { DatePipe } from "@angular/common";
           <ng-container matColumnDef="createdAt">
             <th mat-header-cell *matHeaderCellDef>Created At</th>
             <td mat-cell *matCellDef="let user">
-              {{ user.createdAt | date : "medium" }}
+              {{ user.createdAt | date: "medium" }}
             </td>
           </ng-container>
 
           <ng-container matColumnDef="updatedAt">
             <th mat-header-cell *matHeaderCellDef>Updated At</th>
             <td mat-cell *matCellDef="let user">
-              {{ user.updatedAt | date : "medium" }}
+              {{ user.updatedAt | date: "medium" }}
             </td>
           </ng-container>
 

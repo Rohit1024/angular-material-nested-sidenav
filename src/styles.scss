@@ -1,33 +1,22 @@
-@use '@angular/material' as mat;
-@use 'node_modules/@ngxpert/hot-toast/src/styles/styles.scss';
+@use "@angular/material" as mat;
+@use "node_modules/@ngxpert/hot-toast/src/styles/styles.scss";
 
 @include mat.core();
 
 // Define a dark theme
-$dark-theme: mat.define-theme((
-  color: (
-    theme-type: dark,
-    primary: mat.$violet-palette,
-  ),
-));
+$dark-theme: mat.define-theme((color: (theme-type: dark)));
 
 // Define a light theme
-$light-theme: mat.define-theme((
-  color: (
-    theme-type: light,
-    primary: mat.$violet-palette,
-  ),
-));
+$light-theme: mat.define-theme((color: (theme-type: light)));
 
-
-
-html, body { 
-  height: 100%; 
+html,
+body {
+  height: 100%;
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
   @include mat.all-component-themes($light-theme);
 }
 
 .darkMode {
   @include mat.all-component-colors($dark-theme);
 }
-
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

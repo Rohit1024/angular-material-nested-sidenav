@@ -1,16 +1,12 @@
-import { Component } from '@angular/core';
+import { Component } from "@angular/core";
+import { RouterOutlet } from "@angular/router";
 
 @Component({
-  selector: 'app-videos',
+  selector: "app-videos",
   standalone: true,
-  imports: [],
-  template: `
-    <p>
-      videos works!
-    </p>
-  `,
-  styles: ``
+  imports: [RouterOutlet],
+  template: `<p>videos works!</p>
+    <router-outlet />`,
+  styles: ``,
 })
-export class VideosComponent {
-
-}
+export class VideosComponent {}

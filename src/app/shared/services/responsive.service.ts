@@ -1,10 +1,10 @@
-import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { Injectable, inject } from '@angular/core';
-import { toSignal } from '@angular/core/rxjs-interop';
-import { Observable, map, shareReplay } from 'rxjs';
+import { BreakpointObserver, Breakpoints } from "@angular/cdk/layout";
+import { Injectable, inject } from "@angular/core";
+import { toSignal } from "@angular/core/rxjs-interop";
+import { Observable, map, shareReplay } from "rxjs";
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: "root",
 })
 export class ResponsiveService {
   private breakpointObserver = inject(BreakpointObserver);
@@ -13,7 +13,7 @@ export class ResponsiveService {
     .observe(Breakpoints.HandsetPortrait)
     .pipe(
       map((result) => result.matches),
-      shareReplay()
+      shareReplay(),
     );
 
   sidebarSelectorMode = toSignal(this.isHandset$);

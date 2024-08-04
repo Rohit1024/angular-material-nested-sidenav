@@ -1,16 +1,10 @@
-import { Component } from '@angular/core';
+import { Component } from "@angular/core";
 
 @Component({
-  selector: 'app-documents',
+  selector: "app-documents",
   standalone: true,
   imports: [],
-  template: `
-    <p>
-      documents works!
-    </p>
-  `,
-  styles: ``
+  template: ` <p>documents works!</p> `,
+  styles: ``,
 })
-export class DocumentsComponent {
-
-}
+export class DocumentsComponent {}

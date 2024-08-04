@@ -1,10 +1,3 @@
-export type MenuItem = {
-  icon: string;
-  label: string;
-  route: string;
-  subItems?: MenuItem[];
-};
-
 export type User = {
   id: string;
   name: string;

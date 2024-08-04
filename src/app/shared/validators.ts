@@ -1,14 +1,14 @@
-import { ValidatorFn, AbstractControl } from '@angular/forms';
+import { ValidatorFn, AbstractControl } from "@angular/forms";
 
 export function match(
   controlName: string,
-  checkControlName: string
+  checkControlName: string,
 ): ValidatorFn {
   return (controls: AbstractControl) => {
     const control = controls.get(controlName);
     const checkControl = controls.get(checkControlName);
 
-    if (checkControl?.errors && !checkControl.errors['matching']) {
+    if (checkControl?.errors && !checkControl.errors["matching"]) {
       return null;
     }
 

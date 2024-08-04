@@ -1,21 +1,21 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { MatCardModule } from '@angular/material/card';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
+import { ChangeDetectionStrategy, Component, inject } from "@angular/core";
+import { MatCardModule } from "@angular/material/card";
+import { MatFormFieldModule } from "@angular/material/form-field";
+import { MatInputModule } from "@angular/material/input";
 import {
   NonNullableFormBuilder,
   ReactiveFormsModule,
   Validators,
-} from '@angular/forms';
-import { MatIconModule } from '@angular/material/icon';
-import { MatButtonModule } from '@angular/material/button';
-import { CommonModule } from '@angular/common';
-import { Router } from '@angular/router';
-import { HotToastService } from '@ngxpert/hot-toast';
-import { match } from '@/app/shared/validators';
+} from "@angular/forms";
+import { MatIconModule } from "@angular/material/icon";
+import { MatButtonModule } from "@angular/material/button";
+import { CommonModule } from "@angular/common";
+import { Router } from "@angular/router";
+import { HotToastService } from "@ngxpert/hot-toast";
+import { match } from "@/app/shared/validators";
 
 @Component({
-  selector: 'auth-signup',
+  selector: "auth-signup",
   standalone: true,
   imports: [
     MatCardModule,
@@ -40,14 +40,15 @@ import { match } from '@/app/shared/validators';
           [formControl]="signupForm.controls.displayName"
         />
         <mat-icon matSuffix>account_box</mat-icon>
-        @if(handleErrorRegister('displayName', 'required')){
-        <mat-error><small>Display Name is required</small></mat-error>
-        } @if(handleErrorRegister('displayName', 'minlength')) {
-        <mat-error
-          ><small
-            >Display Name must be of length atleast 3 characters long</small
-          ></mat-error
-        >
+        @if (handleErrorRegister("displayName", "required")) {
+          <mat-error><small>Display Name is required</small></mat-error>
+        }
+        @if (handleErrorRegister("displayName", "minlength")) {
+          <mat-error
+            ><small
+              >Display Name must be of length atleast 3 characters long</small
+            ></mat-error
+          >
         }
       </mat-form-field>
       <mat-form-field appearance="outline">
@@ -60,10 +61,11 @@ import { match } from '@/app/shared/validators';
           [formControl]="signupForm.controls.email"
         />
         <mat-icon matSuffix>email</mat-icon>
-        @if(handleErrorRegister('email', 'required')){
-        <mat-error><small>Email is required</small></mat-error>
-        } @if(handleErrorRegister('email', 'email')){
-        <mat-error><small>Email should be of Valid Format</small></mat-error>
+        @if (handleErrorRegister("email", "required")) {
+          <mat-error><small>Email is required</small></mat-error>
+        }
+        @if (handleErrorRegister("email", "email")) {
+          <mat-error><small>Email should be of Valid Format</small></mat-error>
         }
       </mat-form-field>
       <mat-form-field appearance="outline">
@@ -85,17 +87,18 @@ import { match } from '@/app/shared/validators';
           [attr.aria-label]="'Hide password'"
           [attr.aria-pressed]="passwordHide"
         >
-          @if(passwordHide){
-          <mat-icon matSuffix>visibility_off</mat-icon>
-          } @else{
-          <mat-icon matSuffix>visibility</mat-icon>
+          @if (passwordHide) {
+            <mat-icon matSuffix>visibility_off</mat-icon>
+          } @else {
+            <mat-icon matSuffix>visibility</mat-icon>
           }
         </button>
-        @if(handleErrorRegister('password', 'required')){
-        <mat-error><small>Password is required</small></mat-error>
-        } @if(handleErrorRegister('password', 'minlength')){
-        <mat-error><small>Password must be of length 6</small></mat-error
-        >}
+        @if (handleErrorRegister("password", "required")) {
+          <mat-error><small>Password is required</small></mat-error>
+        }
+        @if (handleErrorRegister("password", "minlength")) {
+          <mat-error><small>Password must be of length 6</small></mat-error>
+        }
       </mat-form-field>
       <mat-form-field appearance="outline">
         <mat-label>Confirm Password</mat-label>
@@ -115,16 +118,17 @@ import { match } from '@/app/shared/validators';
           [attr.aria-label]="'Hide password'"
           [attr.aria-pressed]="confirmPasswordHide"
         >
-          @if(confirmPasswordHide){
-          <mat-icon matSuffix>visibility_off</mat-icon>
-          } @else{
-          <mat-icon matSuffix>visibility</mat-icon>
+          @if (confirmPasswordHide) {
+            <mat-icon matSuffix>visibility_off</mat-icon>
+          } @else {
+            <mat-icon matSuffix>visibility</mat-icon>
           }
         </button>
-        @if(handleErrorRegister('confirmPassword', 'required')){
-        <mat-error><small>Confirm Password is required</small></mat-error>
-        } @if(handleErrorRegister('confirmPassword', 'matching')){
-        <mat-error><small>Passwords should match</small></mat-error>
+        @if (handleErrorRegister("confirmPassword", "required")) {
+          <mat-error><small>Confirm Password is required</small></mat-error>
+        }
+        @if (handleErrorRegister("confirmPassword", "matching")) {
+          <mat-error><small>Passwords should match</small></mat-error>
         }
       </mat-form-field>
       <button mat-fab extended type="submit" style="width : 100%;">
@@ -157,23 +161,23 @@ export class SignupComponent {
 
   signupForm = this.fb.group(
     {
-      displayName: ['', [Validators.required, Validators.minLength(3)]],
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(6)]],
-      confirmPassword: ['', Validators.required],
+      displayName: ["", [Validators.required, Validators.minLength(3)]],
+      email: ["", [Validators.required, Validators.email]],
+      password: ["", [Validators.required, Validators.minLength(6)]],
+      confirmPassword: ["", Validators.required],
     },
     {
-      validators: match('password', 'confirmPassword'),
-    }
+      validators: match("password", "confirmPassword"),
+    },
   );
 
   onSubmit() {
     this.signupForm.markAllAsTouched();
     const { displayName, email, password } = this.signupForm.value;
     if (!this.signupForm.valid || !displayName || !email || !password)
-      return this.toast.error('Form has some errors');
+      return this.toast.error("Form has some errors");
     console.table(this.signupForm.value);
-    return this.toast.success('Account Created Successfully');
+    return this.toast.success("Account Created Successfully");
   }
 
   /* Get errors */
